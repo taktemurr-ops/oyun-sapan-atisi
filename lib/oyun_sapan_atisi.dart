@@ -5,7 +5,6 @@ import 'package:arcade_motoru/sapan.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const sapanId = 'oyun-sapan-atisi';
 
@@ -88,7 +87,7 @@ final sapanConfig = GameConfig(
   rules: sapanRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => sapanRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => sapanRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintSling(c, s, p, t);
